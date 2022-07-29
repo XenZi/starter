@@ -1,3 +1,25 @@
+button,
 .button {
-    
+  padding: 10px 35px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: $color--white;
+  transition: all 0.2s ease-in-out;
+  font-family: $font--family-montserrat;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.button--outline {
+  border: 1px solid $color--white;
+}
+
+.button--outline-green {
+  border: 1px solid $color--green;
+}
+
+.button--outline-circle {
+  border-radius: 50px;
 }

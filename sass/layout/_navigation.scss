@@ -1,3 +1,132 @@
 .nav {
-    
+  font-family: $font--family-roboto-mono;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include breakpoint("touch") {
+    transition: all 0.3s ease-out;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    flex-direction: column;
+    background-color: $color--background-active;
+    width: 75%;
+    height: 100vh;
+    align-items: flex;
+    transform: translateX(-100%);
+    justify-content: flex-start;
+  }
+}
+
+.nav__item {
+  margin: 0 10px;
+
+  @include breakpoint("touch") {
+    margin: 20px 0;
+  }
+}
+
+.nav__link {
+  color: $color--white;
+  transition: all 0.3s ease-out;
+  position: relative;
+  &:hover {
+    color: $color--green;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    width: 0%;
+    height: 0;
+    background-color: $color--white;
+    transition: all 0.3s ease-in;
+  }
+
+  &:hover::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color--green;
+  }
+
+  &:hover .nav__number {
+    color: $color--white;
+  }
+
+  @include breakpoint("touch") {
+    font-size: 16px;
+  }
+}
+
+.nav__number {
+  color: $color--green;
+  margin-right: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav__hamburger {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  display: none;
+  @include breakpoint("touch") {
+    display: flex;
+  }
+}
+
+.nav__line {
+  width: 20px;
+  height: 3px;
+  background-color: $color--white;
+  margin-top: 5px;
+  align-self: flex-end;
+  transition: all 0.3s ease-in;
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &:nth-of-type(2) {
+    width: 85%;
+  }
+
+  &:nth-of-type(3) {
+    width: 65%;
+  }
+}
+
+.nav__line--active {
+  transition: all 0.3s ease-out;
+  &:first-of-type {
+    margin-top: 0;
+    transform: translateX(45%);
+  }
+
+  &:nth-of-type(2) {
+    width: 0;
+  }
+
+  &:nth-of-type(3) {
+    width: 100%;
+    transform: translateX(-45%);
+  }
+}
+
+.nav__list--active {
+  display: flex;
+  transition: all 0.3s ease-in;
+  transform: translateX(0%);
+  visibility: visible;
+  opacity: 1;
 }
